@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+function App() {
+  return (
+    <div>
+      <h1>
+        The package is:
+      </h1>
+    </div>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
