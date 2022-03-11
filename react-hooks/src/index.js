@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 function App() {
+  const [delivered, setDelivered] = useState(false)
   return (
     <div>
       <h1>
-        The package is:
+        The package is: {(delivered) ? "Delivered" : "Not Delivered"}
       </h1>
+      <button onClick={() => setDelivered(!delivered)}>Change Delivery Status</button>
     </div>
   )
 }
