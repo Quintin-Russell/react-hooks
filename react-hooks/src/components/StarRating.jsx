@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Star from "./Star";
 import '../App.css'
 
 const createdArr = (len) => [...Array(len)]
 
-export default function StarRating({totalStars = 5, selectedStars, setSelectedStars}) {
-  // const [selectedStars, setSelectedStars] = useState(0)
-
+export default function StarRating({totalStars = 5}) {
+  const [selectedStars, setSelectedStars] = useState(0)
   return (
 <>
     <div className='row'>
