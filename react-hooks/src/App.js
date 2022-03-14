@@ -1,9 +1,17 @@
+import React from 'react';
+import StarRating from './components/StarRating'
 import './App.css';
 
 function App() {
+
   return (
-    <div className="App">
+    <>
+    <div className='centered col'>
+        <StarRating
+        totalStars={5}/>
     </div>
+  </>
+
   );
 }
 
