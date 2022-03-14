@@ -1,4 +1,19 @@
-.App {
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
   text-align: center;
 }
 
