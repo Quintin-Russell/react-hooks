@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React, {
+  useState,
+  useEffect
+} from 'react'
 import './App.css';
 
 function App() {
+const [name, setName] = useState("Quinn")
+
+useEffect(() => {
+  document.title = `Woo Hoo! Go ${name}`
+}, [name])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <p>Good Job, {name}</p>
+      <button onClick={() => setName("Ezgi")}>Click Here to Change the Name</button>
+    </section>
   );
 }
 
