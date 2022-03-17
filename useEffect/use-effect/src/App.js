@@ -5,18 +5,30 @@ import React, {
 import './App.css';
 
 function App() {
-const [name, setName] = useState("Quinn")
+const [data, setData] = useState([])
 
 useEffect(() => {
-  document.title = `Woo Hoo! Go ${name}`
-}, [name])
+  fetch('http://api.github.com/users')
+  .then(res=>res.json())
+  .then(setData)
+}, [])
 
-  return (
-    <section>
-      <p>Good Job, {name}</p>
-      <button onClick={() => setName("Ezgi")}>Click Here to Change the Name</button>
-    </section>
-  );
+ if (data) {
+   return (
+     <>
+       <ul>
+         {
+           data.map(item => <li key={item.id}>{item.login}</li>)
+         }
+       </ul>
+       <button onClick={() => setData(data.slice(1))}>Change Data</button>
+     </>
+   )
+ } else {
+   return (
+     <h1>No data to display!</h1>
+   )
+ }
 }
 
 export default App;
