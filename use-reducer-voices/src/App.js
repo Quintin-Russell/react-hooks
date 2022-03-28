@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, {useReducer} from 'react';
 import './App.css';
 
+function call(state, action) {
+  return (action.type === "yell")
+    ? {message: "IIIII WILLLL ALLLWAAYYYS LOOOVVVEE YOOOUU"}
+    : (action.type === "whisper")
+      ? {message: "shhhh i'm trying to sleep"}
+      : {message: "New York sucks balls"}
+}
+
 function App() {
+  const [verbalVol, setVerbalVol] = useReducer(
+    call,
+    {message: "Hi, Click the buttons!"}
+  )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <p>{verbalVol.message}</p>
+    <button
+    onClick={() => setVerbalVol({type: "yell"})}>
+      Yell
+      </button>
+          <button
+        onClick={() => setVerbalVol({type: "talk"})}>
+      Talk
+      </button>
+          <button
+        onClick={() => setVerbalVol({type: "whisper"})}>
+      whisper
+      </button>
+    </>
+
   );
 }
 
